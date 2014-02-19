@@ -2,18 +2,17 @@
 
 ############################################################
 """
-These numbers are IDs of input devices on your PC.
-You need to edit them accordance with devices of your PC
+It is a list of devices which will be turned off in tabletMode.
+If you want you can edit this list.
 To find out devices of your PC input command:
-"$ xinput --list"
-Example: 
-  I picked up the following devices for my PC:
-    Video Bus
-    Lenovo EasyCamera
-    AT Translated Set 2 keyboard
-    SynPS/2 Synaptics TouchPad
+  $ xinput --list
 """
-DevNumList = [7, 11, 12, 10]
+DevNumList = [
+  'Video Bus', 
+  'Lenovo EasyCamera', 
+  'AT Translated Set 2 keyboard', 
+  'SynPS/2 Synaptics TouchPad'
+  ]
 ############################################################
 
 import subprocess
@@ -34,7 +33,7 @@ class tabletModeApp(App):
 
   def toggle(self, *args):
     for curDevNum in DevNumList :
-      subprocess.call(['xinput', 'set-int-prop', str(curDevNum), "Device Enabled", '8', str(int(self.__tableMode))])
+      subprocess.call(['xinput', 'set-int-prop', curDevNum, "Device Enabled", '8', str(int(self.__tableMode))])
     if self.__tableMode :
       self.toggleButton.text = 'Turn to TabletMode'
       self.toggleButton.color = [1,1,0,1]
