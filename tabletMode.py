@@ -1,5 +1,21 @@
 #!/usr/bin/env python
 
+############################################################
+"""
+These numbers are IDs of input devices on your PC.
+You need to edit them accordance with devices of your PC
+To find out devices of your PC input command:
+"$ xinput --list"
+Example: 
+  I picked up the following devices for my PC:
+    Video Bus
+    Lenovo EasyCamera
+    AT Translated Set 2 keyboard
+    SynPS/2 Synaptics TouchPad
+"""
+DevNumList = [7, 11, 12, 10]
+############################################################
+
 import subprocess
 from kivy.app import App
 from kivy.uix.button import Button
@@ -11,14 +27,13 @@ Config.write()
 
 class tabletModeApp(App):
   __tableMode = False
-  __DevNumList = [11, 12, 7, 10]
   def build(self):
     self.toggleButton = Button(text='Turn to TabletMode', color = [1,1,0,1])
     self.toggleButton.bind(on_press=self.toggle)
     return self.toggleButton
 
   def toggle(self, *args):
-    for curDevNum in self.__DevNumList :
+    for curDevNum in DevNumList :
       subprocess.call(['xinput', 'set-int-prop', str(curDevNum), "Device Enabled", '8', str(int(self.__tableMode))])
     if self.__tableMode :
       self.toggleButton.text = 'Turn to TabletMode'
