@@ -1,0 +1,13 @@
+
+This app is for using Lenovo Yoga in tablet mode on Linux.
+
+Intalling
+  To use it you need to have Python2 and kivy library. For installing them:
+  $ sudo apt-get install python2.7
+  $ sudo add-apt-repository ppa:kivy-team/kivy
+  $ sudo apt-get update
+  $ sudo apt-get install python-kiv
+
+Using:  
+  Go into the dir with app
+  $ ./tabletMode.py 
