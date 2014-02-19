@@ -22,6 +22,11 @@ from kivy.config import Config
 
 Config.set('graphics', 'width', '200')
 Config.set('graphics', 'height', '100')
+Config.set('graphics', 'position', 'custom')
+Config.set('graphics', 'top', '1')
+Config.set('graphics', 'left', '1')
+Config.set('graphics', 'resizable', '0')
+Config.set('kivy', 'window_icon', './icon.png')
 Config.write()
 
 class tabletModeApp(App):
@@ -44,6 +49,10 @@ class tabletModeApp(App):
       self.toggleButton.color = [0,1,0,1]
       self.__tableMode = True
       print 'Tablet mode'
+
+  def on_stop(self, *args):
+    self.__tableMode = True
+    self.toggle()
 
 if __name__ == '__main__':
   tabletModeApp().run()

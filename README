@@ -4,11 +4,7 @@ It turn on/off input devices. You can edit this list in ./tabletMode.py
 
 Intalling
   To use it you need to have Python2 and kivy library. For installing them:
-  $ sudo apt-get install python2.7
-  $ sudo add-apt-repository ppa:kivy-team/kivy
-  $ sudo apt-get update
-  $ sudo apt-get install python-kiv
+  $ sudo ./install.sh
 
 Using:  
-  Go into the dir with app
-  $ ./tabletMode.py 
+  $ tabletMode.py 
