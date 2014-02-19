@@ -1,5 +1,5 @@
 
-This app is for using Lenovo Yoga in tablet mode on Linux.
+This app is for using Lenovo Yoga in tablet mode on Ubuntu.
 It turn on/off input devices. You can edit this list in ./tabletMode.py
 
 Intalling
